@@ -44,6 +44,8 @@ public struct CubeAttributesAnimator: LayoutAttributesAnimator {
             transform.m34 = perspective
             transform = CATransform3DRotate(transform, rotateAngle, 0, 1, 0)
             
+            attributes.alpha = CGFloat(Float(max(1.0 - Float(min(abs(rotateAngle / 2), 1.0)), 0.3)))
+            
             contentView.layer.transform = transform
             contentView.layer.anchorPoint = anchorPoint
         } else {
